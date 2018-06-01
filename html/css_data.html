@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS</title>
+    <link rel="icon" href="../logo.ico" type="image/x-icon"/>
+
+    <!--内部样式表-->
+    <style type="text/css">
+
+        li p {
+            text-indent: 1em;
+        }
+
+        li a:link {
+            color: #FF0000;
+            text-decoration: none;
+        }
+
+        /* 未被访问的链接 */
+        li a:visited {
+            color: #8B4513;
+            text-decoration: none;
+        }
+
+        /* 已被访问的链接 */
+        li a:hover {
+            color: #FF00FF;
+            text-decoration: underline;
+        }
+
+        /* 鼠标指针移动到链接上 */
+        li a:active {
+            color: #0000FF;
+            text-decoration: underline;
+        }
+
+        /* 正在被点击的链接 */
+        /*id建立派生选择器样式*/
+        #div_second_stage_selector div {
+            margin-left: 15px;
+        }
+
+        /*class建立派生选择器样式*/
+        .class_third_stage h4 {
+            color: indianred;
+        }
+
+        /*属性选择器 下：含有title属性的标签*/
+        [title] {
+            color: red;
+        }
+    </style>
+
+</head>
+<body style="width: 100%;height: 100%;background-color: whitesmoke;align-items: center;">
+<div style="width: 100%;height: 100%;">
+    <div style="width:60%;margin: auto;padding: 2%;background-color: white;">
+        <h1 style="text-align: center;">CSS相关知识点</h1>
+        <h2>一丶了解<abbr title="Cascading Style Sheets">CSS</abbr></h2>
+        <div style="margin-left: 15px">
+            <h3>1.什么是CSS？</h3>
+            <div style="margin-left: 15px">
+                <ul>
+                    <li>CSS 指层叠样式表</li>
+                </ul>
+            </div>
+            <h3>2.样式类型</h3>
+            <div style="margin-left: 15px">
+                <ol>
+                    <li>浏览器缺省设置</li>
+                    <li>外部样式表</li>
+                    <li>内部样式表</li>
+                    <li>内联样式（拥有最高的优先权）</li>
+                </ol>
+            </div>
+            <h3>3.基础语法</h3>
+            <div style="margin-left: 15px">
+                <h4>代码结构</h4>
+                <img src="../img/gif/ct_css_selector.gif"/>
+            </div>
+        </div>
+        <h2>二丶选择器</h2>
+        <div id="div_second_stage_selector" style="margin-left: 15px">
+            <h3>1.元素选择器</h3>
+            <div>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <h3>2.id选择器</h3>
+            <div>
+                <ul>
+                    <li><h4>作用范围：</h4>id 选择器可以为标有特定 id 的 HTML 元素指定特定的样式。</li>
+                    <li><h4>定义方式：</h4>以 "#" 来定义</li>
+                    <li><h4>示例：</h4>
+                        #red {color:red;}<br/>
+                        < p id="red">这个段落是红色。< /p>
+                    </li>
+                    <li><h4>建立派生选择器：</h4>
+                        #sidebar p {<br/>
+                        <p> font-style: italic;</p>
+                        <p> text-align: right;</p>
+                        }<br/>
+                        即：id为“sidebar”的元素内的 < p > 标签的样式
+                    </li>
+                </ul>
+            </div>
+            <h3>3.类（class）选择器</h3>
+            <div class="class_third_stage">
+                <ul>
+                    <li><h4>作用范围：</h4>类选择器可以为标有特定 class 的 HTML 元素指定特定的样式。</li>
+                    <li><h4>定义方式：</h4>以 "." 来定义</li>
+                    <li><h4>示例：</h4>
+                        .center {text-align: center}<br/>
+                        < h1 class="center">
+                        This heading will be center-aligned
+                        < /h1>
+                    </li>
+                    <li><h4>建立派生选择器：</h4>
+                        .fancy p {<br/>
+                        <p> color: #f60;</p>
+                        <p> background: #666;</p>
+                        }<br/>
+                        即：class为“fancy”的元素内的 < p > 标签的样式
+                    </li>
+                    <li><h4>注意：</h4>类名的第一个字符不能使用数字！它无法在 Mozilla 或 Firefox 中起作用。</li>
+                </ul>
+            </div>
+            <h3>4.属性选择器</h3>
+            <div>
+                <ul>
+                    <li><h4>作用范围：</h4>对带有指定属性的 HTML 元素设置样式。</li>
+                    <li><h4>定义方式：</h4>以 "[属性]" 来定义</li>
+                    <li><h4>示例：</h4>
+                        [title=W3School]<br/>
+                        {<br/>
+                        <p>border:5px solid blue;</p>
+                        }<br/>
+                        即为 title="W3School" 的所有元素设置样式：
+                    </li>
+                    <li><h4>注意：</h4>只有在规定了 !DOCTYPE 时，IE7 和 IE8 才支持属性选择器。在 IE6 及更低的版本中，不支持属性选择。</li>
+                </ul>
+            </div>
+        </div>
+        <h2>三丶样式</h2>
+        <div style="margin-left: 15px">
+            <h3>1.背景</h3>
+            <div style="margin-left: 15px">
+                <ul>
+                    <li><h4>背景色：</h4>p {background-color: gray;}</li>
+                    <li><h4>背景图像：</h4>body {background-image: url(/i/eg_bg_04.gif);}</li>
+                    <li><h4>其他属性：</h4>
+                        background-repeat: repeat-y; （即：y轴平铺）<br/>
+                        background-repeat: no-repeat; （即：y轴平铺）<br/>
+                        background-position:center; （即居中）<br/>
+                        background-position:10% 50%; （即x轴10% y轴50%）<br/>
+                        background-attachment:fixed;（即固定位置）
+                    </li>
+                </ul>
+            </div>
+            <h3>2.文本</h3>
+            <div style="margin-left: 15px">
+                <ul>
+                    <li><h4>缩进文本：</h4>
+                        <p style="text-indent: 1em;"> p {text-indent: 1em;}</p> p {text-indent: 20%;}
+                    </li>
+                    <li><h4>水平对齐：</h4><span style="text-align: right;"> p {text-align:center;}</span></li>
+                    <li><h4>字间隔：</h4><span style="word-spacing: 1em;">p { word-spacing : -0.5em ; }</span></li>
+                    <li><h4>字母间隔：</h4><span style="letter-spacing: 10px;">  p {letter-spacing: 10px}</span></li>
+                    <li><h4>字符转换：</h4><span style="text-transform: capitalize">h1 {text-transform: capitalize}</span>
+                        <h5>text-transform属性:</h5>
+                        none<br/>
+                        uppercase:转大写<br/>
+                        lowercase:转小写</br>
+                        capitalize:只对每个单词的首字母大写
+                    </li>
+                    <li><h4>文本装饰：</h4><span style="text-decoration:underline overline line-through;">p {text-decoration:underline overline line-through;}</span>
+                        <h5>text-decoration 属性:</h5>
+                        none<br/>
+                        underline:下划线<br/>
+                        overline:上划线<br/>
+                        line-through:贯穿线<br/>
+                        blink:文本闪烁(没效果)<br/>
+                    </li>
+                    <li><h4>处理空白符：</h4> <span
+                            style="white-space: normal;">p {   white-space  :  normal  ;  }</span><br/>
+                        <h5>white-space 属性:</h5>
+                        <img src="../img/img/white_space_attribute.png"/>
+                    </li>
+                    <li><h4>文本方向：</h4>
+                        <p style="direction: ltr ;">p { direction : ltr ; }</p></li>
+                    <li><h4>文本属性：</h4>
+                        <img src="../img/img/text_attribute.png"/>
+                    </li>
+                </ul>
+            </div>
+            <h3>3.字体</h3>
+            <div style="margin-left: 15px">
+                <ul>
+                    <li>
+                        <h4>指定字体：</h4>
+                        <span style="font-family:Georgia,Magneto,serif"> body {font-family: Georgia,Magneto,serif;}</span><br/>
+                        按照排列顺序依次寻找用户已经安装的字体，以“,”隔开，如果都不可用，则会使用通用的 serif 字体。
+                        <h5> 5 种通用字体:</h5>
+                        <span style="font-family: serif">Serif 字体</span><br/>
+                        <span style="font-family: Sans-serif">Sans-serif 字体</span><br/>
+                        <span style="font-family: Monospace">Monospace 字体</span><br/>
+                        <span style="font-family: Cursive">Cursive 字体</span><br/>
+                        <span style="font-family: Fantasy">Fantasy 字体</span>
+                    </li>
+                    <li><h4>字体风格：</h4>
+                        <p style="font-style: normal ;">p {font-style:normal;}</p>
+                        <p style="font-style: italic ;">p {font-style:italic;}</p>
+                        <p style="font-style: oblique;">p {font-style:oblique ;}</p>
+                    </li>
+                    <li><h4>字体变形：</h4>
+                        <p style="font-variant: small-caps;">p {font-variant:small-caps;}</p>
+                    </li>
+                    <li><h4>字体加粗：</h4>
+                        <p style="font-weight: bold;">p {font-weight:bold;}</p>
+                    </li>
+                    <li><h4>字体大小：</h4>
+                        <p style="font-size: 20px;">p {font-size: 20px;}</p>
+                    </li>
+                </ul>
+            </div>
+            <h3>4.链接</h3>
+            <div style="margin-left: 15px">
+                <ul >
+                    <li><h4>链接样式：</h4>
+                        <a href="#">
+                            a:link {color:#FF0000;} /* 未被访问的链接 */<br/>
+                            a:visited {color:#8B4513;} /* 已被访问的链接 */<br/>
+                            a:hover {color:#FF00FF;} /* 鼠标指针移动到链接上 */<br/>
+                            a:active {color:#0000FF;} /* 正在被点击的链接 */
+                        </a>
+                    </li>
+                    <li><h4>文本修饰：</h4>
+                        <a style="text-decoration: none;white-space: normal;" href="#"> a {text-decoration: none}
+                            无下划线<br/>
+                        </a>
+                        <a style="text-decoration: underline;white-space: normal;" href="#"> a {text-decoration:
+                            underline} 有下划线<br/>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+</body>
+</html>

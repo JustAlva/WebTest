@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:align="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>HTML</title>
+    <!--标题栏图标 文件要是ico格式-->
+    <link rel="icon" href="../logo.ico" type="image/x-icon"/>
+
+</head>
+
+<body style="width:100%;height: 100%;background-color: whitesmoke;">
+<div align="center" style="height: 100%;width:100%;">
+    <!--了解HTML-->
+    <div align="left" style="width:60%;margin:auto;padding:2%;background-color: white">
+        <h1 style="text-align:center;">HTML相关知识点</h1>
+        <h2>一丶了解<abbr title="Hyper Text Markup Language">HTML</abbr></h2>
+        <div style="margin-left: 10px;">
+            <div>
+                <h3>1. 什么是HTML？</h3>
+                <ul>
+                    <li>HTML 指超文本标签语言</li>
+                    <li>标签语言</li>
+                </ul>
+            </div>
+
+            <div>
+                <h3>2. 4个实例</h3>
+                <ul>
+                    <li>标题 大-小 &lsaquo;h1&rsaquo; - &lsaquo;h6&rsaquo;</li>
+                    <li>段落 &lsaquo;p > &lsaquo; /p&rsaquo;</li>
+                    <li>链接 &lsaquo;a href="http://www.baidu.com"&rsaquo;百度&lsaquo;/a&rsaquo;</li>
+                    <li>图像 &lsaquo;img src="img.jpg" /&rsaquo;</li>
+                </ul>
+            </div>
+            <div>
+                <h3>3. HTML属性</h3>
+                <ul>
+                    <li>对齐方式： align</li>
+                    <li>背景色： bgcolor</li>
+                    <li>边框： border</li>
+                </ul>
+            </div>
+            <div>
+                <h3>4. 样式 style 键值对 以 ; 隔开</h3>
+                <ul>
+                    <li>背景色：background-color:red</li>
+                    <li>字体：font-family:verdana</li>
+                    <li>字体色：color:red</li>
+                    <li>字体大小：font-size:20px</li>
+                    <li>对齐：text-align:center</li>
+                </ul>
+            </div>
+        </div>
+        <br/>
+        <h2>二丶HTML基本结构 </h2>
+        <div style="margin-left: 10px;">
+            <p>
+                <span>&lsaquo;!DOCTYPE html&rsaquo;</span><br/>
+                <span>&lsaquo;html lang="en"&rsaquo;</span><br/>
+                <span>&lsaquo;head&rsaquo;</span><br/>
+                <span style="margin-left: 20px;">&lsaquo;meta charset="utf-8" /&rsaquo;</span><br/>
+                <span style="margin-left: 20px;">&lsaquo;title > xxx < / title &rsaquo;</span><br/>
+                <span style="margin-left: 20px;">&lsaquo;!--标题栏图标 文件要是ico格式--&rsaquo;</span><br/>
+                <span style="margin-left: 20px;">&lsaquo;link rel="icon" href="../logo.ico" type="image/x-icon"/&rsaquo;</span><br/>
+                <span>&lsaquo;/head&rsaquo;</span><br/>
+                <span>&lsaquo;body&rsaquo;</span><br/>
+                <br/>
+                <span>&lsaquo;/body&rsaquo;</span><br/>
+                <span>&lsaquo;/html&rsaquo;</span><br/>
+            </p>
+
+        </div>
+        <br/>
+        <h2>三丶标签 </h2>
+        <div style="margin-left: 10px">
+            <div>
+                <h3> 引用标签</h3>
+                <div>
+                <ul>
+                    <b>缩略词 abbr</b>
+                    <li>用法：< abbr title="Hyper Text Markup Language">HTML< /abbr></li>
+                    <li>样式：<abbr title="Hyper Text Markup Language">HTML</abbr></li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>短引用 q</b>
+                    <li>用法：< q>构建人与自然和谐共存的世界。< /q></li>
+                    <li>样式：<q>构建人与自然和谐共存的世界。</q></li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>长引用 blockquote</b>
+                    <li>用法：< blockquote cite="http://www.baidu.com">这是个长引用< /blockquote></li>
+                    <li>样式：<blockquote cite="http://www.baidu.com">这是个长引用</blockquote></li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>定义 dfn</b>
+                    <li>用法：< dfn title="World Health Organization">WHO< /dfn></li>
+                    <li>样式：<dfn title="World Health Organization">WHO</dfn></li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>联系信息 address</b>
+                    <li>用法：<br>
+                        < address><br>
+                        Written by Donald Duck.<br>
+                        Visit us at:<br>
+                        Example.com<br>
+                        Box 564, Disneyland<br>
+                        USA<br>
+                    < /address></li>
+                    <li>样式：<address>
+                        Written by Donald Duck.<br>
+                        Visit us at:<br>
+                        Example.com<br>
+                        Box 564, Disneyland<br>
+                        USA
+                    </address></li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>著作标题 cite</b>
+                    <li>用法：< cite>The Scream< /cite> by Edward Munch. Painted in 1893.</li>
+                    <li>样式：<cite>The Scream</cite> by Edward Munch. Painted in 1893.</li>
+                </ul>
+                <br/>
+                <ul>
+                    <b>双向重写 bdo</b>
+                    <li>用法：< bdo dir="rtl">This text will be written from right to left< /bdo></li>
+                    <li>样式：<bdo dir="rtl">This text will be written from right to left</bdo></li>
+                </ul>
+                </div>
+            </div>
+        </div>
+        <br/>
+        <h2>四丶HTML样式 </h2>
+        <div style="margin-left: 10px">
+            <h3>1.外部样式表</h3>
+            <p style="margin-left: 15px">
+                < head><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;< link rel="stylesheet" type="text/css" href="mystyle.css"><br/>
+                < /head>
+            </p>
+            <br/>
+            <h3>2.内部样式表</h3>
+            <p style="margin-left: 15px">
+                < head><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;< style type="text/css"><br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; body {background-color: red}<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;p {margin-left: 20px}<br/>
+                    &nbsp;&nbsp;&nbsp;&nbsp;< /style><br/>
+                < /head>
+            </p>
+            <br/>
+            <h3>1.内联样式</h3>
+            <p style="margin-left: 15px">
+                 < p style="color: red; margin-left: 20px"><br/>
+                 &nbsp;&nbsp;&nbsp;&nbsp;  This is a paragraph<br/>
+                 < /p>
+            </p>
+        </div>
+    </div>
+</div>
+</body>
+
+</html>
