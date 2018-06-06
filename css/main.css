@@ -1,0 +1,102 @@
+
+.main_bg {
+    width: 100%;
+    height: 100%;
+    background-image: url(../img/img/img_login_bg.jpg);
+    background-size: cover;
+    display: block;
+    overflow: hidden;
+}
+
+.div_content {
+    opacity: .7;
+    background-color: white;
+    width: 450px;
+    height: 250px;
+    margin: auto;
+    position: absolute;
+    display: block;
+    left: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+}
+/*------------------login-------------------*/
+.btn_login {
+    width: 250px;
+    height:40px;
+    border-radius: 4px;
+    color: white;
+    font-weight: bold;
+    font-size: 1.3em;
+    font-family:fantasy,sans-serif,cursive,Serif;
+    float: left;
+    margin-bottom: 35px;
+    margin-left: 100px;
+}
+.img_icon_logo {
+    display: block;
+    width: 30px;
+    height: 30px;
+    float: left;
+    margin-top:5px;
+    margin-bottom: 5px;
+}
+.input_login{
+    display: block;
+    width: 200px;
+    padding: 10px;
+    float: left;
+    margin-left: 10px;
+}
+.div_login_id {
+    height:40px;
+    margin-left: 85px;
+    margin-right: 85px;
+    margin-top: 35px;
+}
+.div_login_psd {
+    height:40px;
+    margin-left: 85px;
+    margin-right: 85px;
+    margin-top: 35px;
+    margin-bottom: 35px;
+}
+/*------------------------------------*/
+
+
+/*-------------点击涟漪-----------------*/
+.ripple {
+    border: 0;
+    position: relative;
+    background-color: cornflowerblue;
+}
+
+.ripple:focus {
+    outline: none;
+}
+
+.ripple:after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: -10px;
+    top: -10px;
+    right: -10px;
+    bottom: -10px;
+    border: 0;
+    background-color: red;
+    opacity: 0;
+    transition: all .3s;
+}
+
+.ripple:active:after {
+    opacity: .3;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    transition: 0s;
+}
+
+/*---------------------------------*/

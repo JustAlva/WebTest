@@ -8,34 +8,58 @@
     <!--内部样式表-->
     <style type="text/css">
 
+        p.class_p_position_relative {
+            position: relative;
+            reft: 20px;
+        }
+
+        p.class_p_position_absolute {
+            position: absolute;
+            right: 100px;
+            top: 200px;
+
+        }
+
+        p.class_p_position_fixed {
+            position: fixed;
+            left: 100px;
+            top: 100px;
+
+        }
+
         li p {
             text-indent: 1em;
+        }
+
+        table, th, td {
+            border: 1px solid blue;
         }
 
         li a:link {
             color: #FF0000;
             text-decoration: none;
+            background-color: bisque;
         }
 
-        /* 未被访问的链接 */
+        /* 已被访问的链接 */
         li a:visited {
             color: #8B4513;
             text-decoration: none;
         }
 
-        /* 已被访问的链接 */
+        /* 鼠标指针移动到链接上 */
         li a:hover {
             color: #FF00FF;
-            text-decoration: underline;
+            text-decoration: none;
+            background-color: aquamarine;
         }
 
-        /* 鼠标指针移动到链接上 */
+        /* 正在被点击的链接 */
         li a:active {
             color: #0000FF;
             text-decoration: underline;
         }
 
-        /* 正在被点击的链接 */
         /*id建立派生选择器样式*/
         #div_second_stage_selector div {
             margin-left: 15px;
@@ -172,7 +196,7 @@
                         <h5>text-transform属性:</h5>
                         none<br/>
                         uppercase:转大写<br/>
-                        lowercase:转小写</br>
+                        lowercase:转小写<br/>
                         capitalize:只对每个单词的首字母大写
                     </li>
                     <li><h4>文本装饰：</h4><span style="text-decoration:underline overline line-through;">p {text-decoration:underline overline line-through;}</span>
@@ -204,10 +228,10 @@
                         按照排列顺序依次寻找用户已经安装的字体，以“,”隔开，如果都不可用，则会使用通用的 serif 字体。
                         <h5> 5 种通用字体:</h5>
                         <span style="font-family: serif">Serif 字体</span><br/>
-                        <span style="font-family: Sans-serif">Sans-serif 字体</span><br/>
-                        <span style="font-family: Monospace">Monospace 字体</span><br/>
-                        <span style="font-family: Cursive">Cursive 字体</span><br/>
-                        <span style="font-family: Fantasy">Fantasy 字体</span>
+                        <span style="font-family: Sans-serif,serif;">Sans-serif 字体</span><br/>
+                        <span style="font-family: Monospace,serif;">Monospace 字体</span><br/>
+                        <span style="font-family: Cursive,serif;">Cursive 字体</span><br/>
+                        <span style="font-family: Fantasy,serif;">Fantasy 字体</span>
                     </li>
                     <li><h4>字体风格：</h4>
                         <p style="font-style: normal ;">p {font-style:normal;}</p>
@@ -227,7 +251,7 @@
             </div>
             <h3>4.链接</h3>
             <div style="margin-left: 15px">
-                <ul >
+                <ul>
                     <li><h4>链接样式：</h4>
                         <a href="#">
                             a:link {color:#FF0000;} /* 未被访问的链接 */<br/>
@@ -246,7 +270,118 @@
                     </li>
                 </ul>
             </div>
+            <h3>5.表格</h3>
+            <div style="margin-left: 15px;  ">
+                <ul>
+                    <li>
+                        <h4>表格边框</h4>
+                        table, th, td
+                        {
+                        <p style="white-space: pre-wrap ;">border: 1px solid blue;</p>
+                        }
+                        <table>
+                            <tr>
+                                <td>第一行第一列</td>
+                                <td>第一行第二列</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>
+                        <h4>折叠边框</h4>
+                        table
+                        {
+                        <p style="white-space: pre-wrap ;">border-collapse : collapse ;</p>
+                        }
+                        <table style="width:30% ;height:50px;border-collapse: collapse;">
+                            <tr>
+                                <td style="vertical-align:bottom;text-align: right;">第一行第一列</td>
+                                <td>第一行第二列</td>
+                            </tr>
+                        </table>
+                    </li>
+                    <li>
+                        <h4>其他属性</h4>
+                        <ul>
+                            <li> width : 宽度</li>
+                            <li>height : 高度</li>
+                            <li>text-align : 文本对齐方式（水平）</li>
+                            <li>vertical-align : 文本对齐方式（垂直）</li>
+                            <li>padding : 内边距</li>
+                            <li>background-color : 背景色</li>
+                            <li>color : 文本颜色</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+            <h3>6.定位</h3>
+            <div style="margin-left: 15px;">
+                <ul>
+                    <li>
+                        <h4>相对位置</h4>
+                        <p class="class_p_position_relative">position:relative;</P>
+                        相对于父布局的位置
+                    </li>
+                    <li>
+                        <h4>绝对位置</h4>
+                        position:absolute;<br/>
+                        相对于整个容器的位置
+                    </li>
+                    <li>
+                        <h4>固定位置</h4>
+                        <!--  <p class="class_p_position_fixed"> position:fixed;</p><br/>-->
+                        position:fixed;<br/>
+                        相对屏幕的位置，不随滚动变化
+                    </li>
+                    <li>
+                        <h4>overflow</h4>
+                        scroll : 添加滚动条 ， overflow-y : y轴 ，overflow-x :x轴<br/>
+                        hidden : 隐藏滚动条<br/>
+                        auto : 自动处理，区域内容能显示完全则隐藏滚动条，否则显示滚动条<br/>
+                        <p style="overflow: scroll;width: 100px;height: 100px;display: inline-block;">
+                            这是测试，这是测试，这是测试，这是测试，这是测试，这是测试，</p>
+                        <p style="overflow: hidden;width: 100px;height: 100px;display: inline-block;margin-left: 20px;">
+                            这是测试，这是测试，这是测试，这是测试，这是测试，这是测试，</p>
+                        <p style="overflow: auto;width: 100px;height: 100px;display: inline-block;margin-left: 20px;">
+                            这是测试，这是测试，这是测试，这是测试，这是测试，这是测试，</p>
+                    </li>
+                    <li>
+                        <h4>z-index</h4>
+                        <p>当前元素所在层级，默认为0，-1为低优先级（即底层），1为上层</p>
+                        <img src="../img/icon/logo.png" style="position: relative;left:0;top:0;z-index: 1;"/><br/>
+                        <span style="position: relative;color: red;z-index: -1;">这是一个测试</span>前面的元素在底层
+                    </li>
+                </ul>
+            </div>
+            <h3>7.浮动</h3>
+            <div style="margin-left: 15px;">
+                <ul>
+                    <li>
+                        <h4>float</h4>
+                        <p>浮动框 float:left;</p>
+                        <div style="background-color: #8B4513;float:left;width: 50%;height: 200px;">float 1</div>
+                        <div style="background-color: rebeccapurple ;float:left;width: 25%;height: 100px;">float 2</div>
+                        <div style="background-color: aquamarine;float:left;width: 25%;height: 100px;">float 3</div>
+                        <div style="clear: both;background-color: #FF00FF">此处是 clear div ，清除 float 剩下的其他空间</div>
+                        <br/>
+                        <p>图片设置 float:left; 段落不设置，段落包裹着图片</p>
+                        <img src="../img/icon/logo.png" style="float: left;"/>
+                        <p>
+                            这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，这个测试文本，</p>
+                    </li>
+                </ul>
+            </div>
+            <h3>8.导航栏</h3>
+            <div style="margin-left: 15px;">
+                <ul style="list-style-type: none;display: block;">
+                    <li><a href="" style="float: left;padding: 10px;">菜单1</a></li>
+                    <li><a href="" style="float: left; padding: 10px;">菜单2</a></li>
+                    <li><a href="" style="float: left; padding: 10px;">菜单3</a></li>
+                    <li><a href="" style="float: left; padding: 10px;">菜单4</a></li>
+                </ul>
+            </div>
         </div>
+
+
     </div>
 </div>
 

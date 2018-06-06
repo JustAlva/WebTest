@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登录</title>
+    <link rel="icon" href="../../logo.ico"/>
+    <link rel="stylesheet" type="text/css" href="../../css/main.css"/>
+
+</head>
+<script>
+    function login() {
+        idElement = document.getElementById("login_id");
+        psdElement = document.getElementById("login_psd");
+        if (idElement.value==null||idElement.value==="") {
+            alert("请输入账号！")
+        }else if (psdElement.value==null||psdElement.value==="") {
+            alert("请输入密码！")
+        }else{
+            alert(idElement.value + psdElement.value);
+        }
+    }
+
+</script>
+
+<body class="main_bg">
+
+<div class="div_content">
+    <div class="div_login_id">
+        <img class="img_icon_logo vertical_center" src="../../img/icon/icon_login_user_id.png"/>
+        <input id="login_id" class="input_login" type="text" placeholder="请输入账号"/>
+    </div>
+    <div class="div_login_psd">
+        <img class="img_icon_logo vertical_center" src="../../img/icon/icon_login_user_psd.png"/>
+        <input id="login_psd" class="input_login" type="password" placeholder="请输入密码"/>
+    </div>
+    <button class="btn_login vertical_center ripple" onclick="login()">登录</button>
+</div>
+
+</body>
+</html>

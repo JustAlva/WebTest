@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>JavaScript</title>
+    <link rel="icon" href="../logo.ico"/>
+
+    <style type="text/css">
+        .div_body {
+            background-color: whitesmoke;
+        }
+
+        .div_body_content {
+            background-color: white;
+            width: 60%;
+            margin: auto;
+            padding: 2%;
+        }
+
+        .div_body_content div {
+            margin-left: 15px;
+        }
+
+        .div_content_text {
+            margin-left: 15px;
+        }
+
+        .span_care {
+            color: red;
+        }
+    </style>
+    <script>
+        function click_dismiss() {
+            document.write("<p>点击消失</p>");
+        }
+
+        function person(name, age) {
+            this.name = name;
+            this.age = age;
+            this.changeAge = changeAge;
+
+            function changeAge(age) {
+                this.age = age;
+            }
+        }
+
+        /*四舍五入*/
+        function round() {
+            var number = document.getElementById("input_round_number").value;
+            document.getElementById("p_round_value").innerHTML = Math.round(number );
+        }
+        /*随机数*/
+        function random(){
+            var num = Math.random()*100;
+            document.getElementById("p_random_value").innerHTML = num;
+        }
+
+        /*比较大小 取大*/
+        function max() {
+            var num1= document.getElementById("input_max_first_number").value;
+            var num2= document.getElementById("input_max_second_number").value;
+            var maxNum = Math.max(num1, num2);
+            document.getElementById("p_max_value").innerHTML = maxNum;
+
+        }
+        /*比较大小 取小*/
+        function min() {
+            var num1= document.getElementById("input_min_first_number").value;
+            var num2= document.getElementById("input_min_second_number").value;
+            var minNum = Math.min(num1, num2);
+            document.getElementById("p_min_value").innerHTML = minNum;
+
+        }
+    </script>
+
+
+</head>
+<body class="div_body">
+<div class="div_body_content">
+    <h1 style="text-align: center;">JavaScript</h1>
+    <h2>一丶了解JavaScript</h2>
+    <div>
+        <p>JavaScript 是脚本语言</p>
+    </div>
+    <h2>二丶基本语法</h2>
+    <div>
+        <h3>1.使用</h3>
+        <div class="div_content_text">
+            HTML中的脚本必须放在 < script> < /script> 标签中。<br/>
+            脚本可放在 head 和 body 中。
+            <h4>外部javascript</h4>
+            < script src="myScript.js">< /script>
+        </div>
+        <h3>2.输出</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>操控HTML元素</h4>
+                    <p>初始:这是个测试!</p>
+                    <p>通过 document.getElementById("p_li_test").innerHTML="This is a test!"; 修改html的内容。</p>
+                    结果:
+                    <p id="p_li_test">这是个测试！</p>
+                    <script>
+                        document.getElementById("p_li_test").innerHTML = "This is a test!";
+                    </script>
+                </li>
+                <li>
+                    <h4>写到文档输出</h4>
+                    document.write("< p>这是文档输出！< /p>");<br/>
+                    结果:
+                    <script>
+                        document.write("<p>这是文档输出！</p>");
+                    </script>
+                    <p><span class="span_care"> 注意:</span>如果在页面加载完成后执行 document.write ，整个 HTML 页面将被覆盖。</p>
+                    <button onclick="click_dismiss()">测试</button>
+                </li>
+                <li>
+                    <h4>数据类型</h4>
+                    <ul>
+                        <li><b>字符串</b></li>
+                        <li><b>数字</b></li>
+                        <li><b>布尔</b></li>
+                        <li><b>数组</b></li>
+                        <li><b>对象</b></li>
+                        <li><b>Null</b></li>
+                        <li><b>Undefined</b></li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>动态数据类型</h4>
+                    <p>JavaScript 拥有动态类型。
+                        这意味着相同的变量可用作不同的类型。</p>
+                    例如:<br/>
+                    var x // x 为 undefined<br/>
+                    var x = 6; // x 为数字<br/>
+                    var x = "Bill"; // x 为字符串<br/>
+                </li>
+                <li>
+                    <h4>对象</h4>
+                    <p>javascript 中所有事物都是对象</p>
+                    <p>对象是拥有<b>属性</b>和<b>方法</b>的数据</p>
+                    <h4>创建对象</h4>
+                    <h4>定义属性:</h4>
+                    <p>
+                        person = new Object();<br/>
+                        person.firstName = "Bill";<br/>
+                        person.lastName = "Gates";<br/>
+                    </p>
+                    <h4>在构造器中定义方法:</h4>
+                        function person(name,age) {<br/>
+                    <p style="text-indent: 1em">this.name = name;</p>
+                    <p style="text-indent: 1em">this.age = age;</p>
+                    <p style="text-indent: 1em">this.changeAge = changeAge;</p>
+                    <p style="text-indent: 1em">function changeAge(age) {</p>
+                    <p style="text-indent: 1em">this.age=age;</p>
+                    <p style="text-indent: 1em">}</p>
+                    }<br/>
+                    调用: <br/>
+                    person = new person("Bill","50");<br/>
+                    person.changeAge(59); <br/>
+                    document.write(person.name + person.age);
+                    </p>
+                    <p>结果:</p>
+                    <script>
+                        person = new person("Bill", "50");
+                        person.changeAge(59);
+                        document.write(person.name + person.age);
+                    </script>
+
+                    <h4>直接定义:</h4>
+                    <p>var customer={fname:"Bill",lname:"Gates",age:56};</p>
+                    <p> document.write(customer.fname +","+ customer.lname +","+ customer.age);</p>
+                    <p>结果:</p>
+                    <script>
+                        var customer={fname:"Bill",lname:"Gates",age:56};
+                        document.write(customer.fname +","+ customer.lname +","+ customer.age);
+                    </script>
+
+                    <h4>循环遍历对象属性:</h4>
+                    <p style="white-space: pre">
+    var text = '';
+    for (x in customer) {
+        text +=customer[x]+";";
+    }
+    document.write(text);
+                    </p>
+                    <p>结果:</p>
+                    <script>
+                        var text = '';
+                        for (x in customer) {
+                            text +=customer[x]+";";
+                        }
+                        document.write(text);
+                    </script>
+                </li>
+                <li>
+                    <h4>相关对象的创建</h4>
+                    <h4>创建时间对象</h4>
+                    <p>当前时间: nowDate = new Date();<br/>
+                        设置时间: date.setFullYear(2018, 5, 5); //月份 0-11</p>
+                    <script>
+                        nowDate = new Date();
+                        date = new Date( );
+                        date.setFullYear(2018, 5, 5);
+                        document.write("<p>当前时间:"+nowDate+"<br/>设置的时间:"+date+"</p>");
+                    </script>
+
+                    <h4>创建数组对象</h4>
+                    <b>1.</b>
+                    <p>
+                        var array = new Array();<br/>
+                        array[0] = 123;<br/>
+                        array[1] = 'qwe';<br/>
+                        array[2] = "adsf";<br/>
+                        document.write(array[0]+","+array[1]+","+array[2] );
+                    </p>
+                    结果:
+                    <script>
+                        var array = new Array();
+                        array[0] = 123;
+                        array[1] = 'qwe';
+                        array[2] = "adsf";
+                        document.write(array[0]+","+array[1]+","+array[2] );
+                    </script>
+                    <br/>  <br/>
+                    <b>2.</b>
+                    <p>
+                        var  array = new Array(123,'qwe',"adsf");<br/>
+                        document.write(array[0]+","+array[1]+","+array[2] );
+                    </p>
+                    结果:
+                    <script>
+                        var array = new Array(123,'qwe',"adsf");
+                        document.write(array[0]+","+array[1]+","+array[2] );
+                    </script>
+                    <br/>
+                </li>
+                <li>
+                    <h4>算数对象</h4>
+                    <ul>
+                        <li>
+                            <h4>round():四舍五入</h4>
+                            Math.round(); <br/>
+                            测试：
+                            <input id="input_round_number" type="number" />
+                            <button onclick="round()" >四舍五入</button>
+                            <p >结果:<span id="p_round_value"></span></p>
+                        </li>
+                        <li>
+                            <h4>random():随机数</h4>
+                            Math.random(); <br/>
+                            测试：
+                            <button onclick="random()" >生成100以内随机数</button>
+                            <p >结果:<span id="p_random_value"></span></p>
+                        </li>
+                        <li>
+                            <h4>max():两个数中最大的</h4>
+                            Math.max(); <br/>
+                            测试：
+                            <input id="input_max_first_number" type="number" placeholder="第一个数"/>
+                            <input id="input_max_second_number" type="number" placeholder="第二个数"/>
+                            <button onclick="max()" >比较大小</button>
+                            <p >结果:大的数--><span id="p_max_value"></span></p>
+                        </li>
+                        <li>
+                        <h4>min():两个数中最小的</h4>
+                        Math.min(); <br/>
+                        测试：
+                        <input id="input_min_first_number" type="number" placeholder="第一个数"/>
+                        <input id="input_min_second_number" type="number" placeholder="第二个数"/>
+                        <button onclick="min()" >比较大小</button>
+                        <p >结果:小的数--><span id="p_min_value"></span></p>
+                    </li>
+
+                    </ul>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>

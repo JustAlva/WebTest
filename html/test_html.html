@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>测试</title>
+    <style type="text/css">
+
+        .btn {
+            border:0 ;
+            position: relative;
+            width: 100px;
+            height: 50px;
+            background-color: cornflowerblue;
+        }
+        .btn:focus{
+            outline: none;
+        }
+
+        .btn:after {
+            content: "";
+            display: block;
+            position: absolute;
+            left: -10px;
+            top: -10px;
+            right: -10px;
+            bottom: -10px;
+            border: 0;
+            background-color: red;
+            opacity: 0;
+            transition: all .3s;
+        }
+
+        .btn:active:after {
+            opacity: .3;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            transition: 0s;
+        }
+    </style>
+</head>
+<body>
+
+<div align="center">
+    <button class="btn">按钮</button>
+</div>
+</body>
+</html>
