@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" xmlns:http="http://www.w3.org/1999/xhtml">
 <head>
     <meta charset="UTF-8">
     <title>JavaScript</title>
@@ -47,35 +47,86 @@
         /*四舍五入*/
         function round() {
             var number = document.getElementById("input_round_number").value;
-            document.getElementById("p_round_value").innerHTML = Math.round(number );
+            document.getElementById("p_round_value").innerHTML = Math.round(number);
         }
+
         /*随机数*/
-        function random(){
-            var num = Math.random()*100;
+        function random() {
+            var num = Math.random() * 100;
             document.getElementById("p_random_value").innerHTML = num;
         }
 
         /*比较大小 取大*/
         function max() {
-            var num1= document.getElementById("input_max_first_number").value;
-            var num2= document.getElementById("input_max_second_number").value;
+            var num1 = document.getElementById("input_max_first_number").value;
+            var num2 = document.getElementById("input_max_second_number").value;
             var maxNum = Math.max(num1, num2);
             document.getElementById("p_max_value").innerHTML = maxNum;
 
         }
+
         /*比较大小 取小*/
         function min() {
-            var num1= document.getElementById("input_min_first_number").value;
-            var num2= document.getElementById("input_min_second_number").value;
+            var num1 = document.getElementById("input_min_first_number").value;
+            var num2 = document.getElementById("input_min_second_number").value;
             var minNum = Math.min(num1, num2);
             document.getElementById("p_min_value").innerHTML = minNum;
+
+        }
+
+        /*表单验证*/
+        function form_test(thisForm) {
+            with (thisForm == true) {
+                if (isEmpty(form_content)) {
+                    alert("内容不能为空！");
+                    form_content.focus();
+                    return false;
+                }
+            }
+        }
+
+        function isEmpty(field) {
+            with (field) {
+                if (value == null || value == "") {
+                    return true;
+                } else {
+                    return false;
+                }
+            }
+        }
+
+        function checkCookie() {
+            if (navigator.cookieEnabled == true) {
+
+            }
+        }
+
+        function mouseOver(obj) {
+            obj.style.color = "green";
+            obj.style.backgroundColor = "coral";
+            obj.innerHTML = "鼠标移动到布局上";
+        }
+
+        function mouseLeave(obj) {
+            obj.style.color = "blue";
+            obj.style.backgroundColor = "hotpink";
+            obj.innerHTML = "鼠标离开了";
+        }
+
+        function inputChange(obj) {
+
+            var value = obj.value;
+            if (value == null || value == "") {
+                obj.innerHTML = "输入内容不能为空";
+                alert("不能为空");
+            }
 
         }
     </script>
 
 
 </head>
-<body class="div_body">
+<body class="div_body" onload="checkCookie()">
 <div class="div_body_content">
     <h1 style="text-align: center;">JavaScript</h1>
     <h2>一丶了解JavaScript</h2>
@@ -147,7 +198,7 @@
                         person.lastName = "Gates";<br/>
                     </p>
                     <h4>在构造器中定义方法:</h4>
-                        function person(name,age) {<br/>
+                    function person(name,age) {<br/>
                     <p style="text-indent: 1em">this.name = name;</p>
                     <p style="text-indent: 1em">this.age = age;</p>
                     <p style="text-indent: 1em">this.changeAge = changeAge;</p>
@@ -172,23 +223,23 @@
                     <p> document.write(customer.fname +","+ customer.lname +","+ customer.age);</p>
                     <p>结果:</p>
                     <script>
-                        var customer={fname:"Bill",lname:"Gates",age:56};
-                        document.write(customer.fname +","+ customer.lname +","+ customer.age);
+                        var customer = {fname: "Bill", lname: "Gates", age: 56};
+                        document.write(customer.fname + "," + customer.lname + "," + customer.age);
                     </script>
 
                     <h4>循环遍历对象属性:</h4>
                     <p style="white-space: pre">
-    var text = '';
-    for (x in customer) {
-        text +=customer[x]+";";
-    }
-    document.write(text);
+                        var text = '';
+                        for (x in customer) {
+                        text +=customer[x]+";";
+                        }
+                        document.write(text);
                     </p>
                     <p>结果:</p>
                     <script>
                         var text = '';
                         for (x in customer) {
-                            text +=customer[x]+";";
+                            text += customer[x] + ";";
                         }
                         document.write(text);
                     </script>
@@ -200,9 +251,9 @@
                         设置时间: date.setFullYear(2018, 5, 5); //月份 0-11</p>
                     <script>
                         nowDate = new Date();
-                        date = new Date( );
+                        date = new Date();
                         date.setFullYear(2018, 5, 5);
-                        document.write("<p>当前时间:"+nowDate+"<br/>设置的时间:"+date+"</p>");
+                        document.write("<p>当前时间:" + nowDate + "<br/>设置的时间:" + date + "</p>");
                     </script>
 
                     <h4>创建数组对象</h4>
@@ -220,18 +271,18 @@
                         array[0] = 123;
                         array[1] = 'qwe';
                         array[2] = "adsf";
-                        document.write(array[0]+","+array[1]+","+array[2] );
+                        document.write(array[0] + "," + array[1] + "," + array[2]);
                     </script>
-                    <br/>  <br/>
+                    <br/> <br/>
                     <b>2.</b>
                     <p>
-                        var  array = new Array(123,'qwe',"adsf");<br/>
+                        var array = new Array(123,'qwe',"adsf");<br/>
                         document.write(array[0]+","+array[1]+","+array[2] );
                     </p>
                     结果:
                     <script>
-                        var array = new Array(123,'qwe',"adsf");
-                        document.write(array[0]+","+array[1]+","+array[2] );
+                        var array = new Array(123, 'qwe', "adsf");
+                        document.write(array[0] + "," + array[1] + "," + array[2]);
                     </script>
                     <br/>
                 </li>
@@ -242,16 +293,16 @@
                             <h4>round():四舍五入</h4>
                             Math.round(); <br/>
                             测试：
-                            <input id="input_round_number" type="number" />
-                            <button onclick="round()" >四舍五入</button>
-                            <p >结果:<span id="p_round_value"></span></p>
+                            <input id="input_round_number" type="number"/>
+                            <button onclick="round()">四舍五入</button>
+                            <p>结果:<span id="p_round_value"></span></p>
                         </li>
                         <li>
                             <h4>random():随机数</h4>
                             Math.random(); <br/>
                             测试：
-                            <button onclick="random()" >生成100以内随机数</button>
-                            <p >结果:<span id="p_random_value"></span></p>
+                            <button onclick="random()">生成100以内随机数</button>
+                            <p>结果:<span id="p_random_value"></span></p>
                         </li>
                         <li>
                             <h4>max():两个数中最大的</h4>
@@ -259,24 +310,738 @@
                             测试：
                             <input id="input_max_first_number" type="number" placeholder="第一个数"/>
                             <input id="input_max_second_number" type="number" placeholder="第二个数"/>
-                            <button onclick="max()" >比较大小</button>
-                            <p >结果:大的数--><span id="p_max_value"></span></p>
+                            <button onclick="max()">比较大小</button>
+                            <p>结果:大的数--><span id="p_max_value"></span></p>
                         </li>
                         <li>
-                        <h4>min():两个数中最小的</h4>
-                        Math.min(); <br/>
-                        测试：
-                        <input id="input_min_first_number" type="number" placeholder="第一个数"/>
-                        <input id="input_min_second_number" type="number" placeholder="第二个数"/>
-                        <button onclick="min()" >比较大小</button>
-                        <p >结果:小的数--><span id="p_min_value"></span></p>
-                    </li>
+                            <h4>min():两个数中最小的</h4>
+                            Math.min(); <br/>
+                            测试：
+                            <input id="input_min_first_number" type="number" placeholder="第一个数"/>
+                            <input id="input_min_second_number" type="number" placeholder="第二个数"/>
+                            <button onclick="min()">比较大小</button>
+                            <p>结果:小的数--><span id="p_min_value"></span></p>
+                        </li>
 
                     </ul>
                 </li>
             </ul>
         </div>
 
+        <h3>3.表单验证</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>表单标签 form</h4>
+                    <p>< form action="javascript_data.html" onsubmit="return form_test(this)" target="_blank"><br/>
+                        表单能够包含 input 元素，比如文本字段、复选框、单选框、提交按钮等等。<br/>
+                        表单还可以包含 menus、textarea、fieldset、legend 和 label 元素。<br/>
+                    </p>
+                </li>
+                <li>
+                    <h4>form 属性</h4>
+                    <ul>
+                        <li>
+                            <h4>action</h4>
+                            <p>URL,规定当提交表单时向何处发送表单数据。</p>
+                        </li>
+                        <li>
+                            <h4>method</h4>
+                            <p>post get,规定用于发送 form-data 的 HTTP 方法。</p>
+                        </li>
+                        <li>
+                            <h4>target</h4>
+                            <p>
+                                _blank _self _parent _top framename ,规定在何处打开 action URL。<br/><br/>
+                                _blank: 在新窗口中打开。<br/>
+                                _self :默认。在相同的框架中打开。<br/>
+                                _parent :在父框架集中打开。<br/>
+                                _top :在整个窗口中打开。<br/>
+                                framename: 在指定的框架中打开。
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+                <li>
+                    <h4>示例:</h4>
+                    验证输入内容是否为空，不为空则重新打开当前页面。<br/>
+                    <form name="form_submit" action="javascript_data.html" onsubmit="return form_test(this)"
+                          target="_blank" method="get">
+                        <input id="form_content" type="text" placeholder="请输入内容"/>
+                        <input type="submit" value="确定"/>
+                    </form>
+                </li>
+            </ul>
+
+        </div>
+    </div>
+    <h2>三丶DOM</h2>
+    <div>
+        <h3>1.什么事DOM</h3>
+        <div class="div_content_text">
+            <p>文档对象模型 Document Object Model</p>
+        </div>
+        <h3>2.DOM 节点</h3>
+        <div class="div_content_text">
+            <p>HTML 文档中所有内容节点:</p>
+            <ul>
+                <li>整个文档是一个文档节点</li>
+                <li>每个 HTML 元素是元素节点</li>
+                <li>HTML 元素内的文本是文本节点</li>
+                <li>每个 HTML 属性是属性节点</li>
+                <li>注释是注释节点</li>
+            </ul>
+        </div>
+        <h3>3.DOM 方法</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>getElementById()</h4>
+                    <p>返回带有指定 ID 的元素。</p>
+                </li>
+                <li>
+                    <h4>getElementsByTagName()</h4>
+                    <p>返回包含带有指定标签名称的所有元素的节点列表（集合/节点数组）。</p>
+                </li>
+                <li>
+                    <h4>getElementsByClassName()</h4>
+                    <p>返回包含带有指定类名的所有元素的节点列表。</p>
+                </li>
+                <li>
+                    <h4>appendChild()</h4>
+                    <p>把新的子节点添加到指定节点。</p>
+                </li>
+
+                <li>
+                    <h4>removeChild()</h4>
+                    <p>删除子节点。</p>
+                </li>
+                <li>
+                    <h4>replaceChild()</h4>
+                    <p>替换子节点。</p>
+                </li>
+                <li>
+                    <h4>insertBefore()</h4>
+                    <p>在指定的子节点前面插入新的子节点。</p>
+                </li>
+                <li>
+                    <h4>createAttribute()</h4>
+                    <p>创建属性节点。</p>
+                </li>
+                <li>
+                    <h4>createElement()</h4>
+                    <p>创建元素节点。</p>
+                </li>
+                <li>
+                    <h4>createTextNode()</h4>
+                    <p>创建文本节点。</p>
+                </li>
+                <li>
+                    <h4>getAttribute()</h4>
+                    <p>返回指定的属性值。</p>
+                </li>
+                <li>
+                    <h4>setAttribute()</h4>
+                    <p>把指定属性设置或修改为指定的值。</p>
+                </li>
+            </ul>
+        </div>
+        <h3>4.DOM 属性</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>innerHtml</h4>
+                    <p>获取元素内容</p>
+                </li>
+                <li>
+                    <h4>nodeName</h4>
+                    <p>节点名称，只读</p>
+                </li>
+                <li>
+                    <h4>nodeValue</h4>
+                    <p>节点值</p>
+                </li>
+                <li>
+                    <h4>nodeType </h4>
+                    <p>节点类型，只读</p>
+                </li>
+            </ul>
+        </div>
+        <h3>5.DOM 修改</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>修改 HTML 内容</h4>
+                    <p id="p_doc_html_content">document.getElementById("id").innerHTML="new text"</p>
+                    示例：
+                    <button onclick="changeContent()">修改内容</button>
+                    <script>
+                        function changeContent() {
+                            document.getElementById("p_doc_html_content").innerText = "内容被修改了";
+                        }
+                    </script>
+                </li>
+                <li>
+                    <h4>改变 HTML 样式</h4>
+                    <p id="p_doc_html_css">document.getElementById("id").style.color="color "</p>
+                    示例：
+                    <button onclick="changeCss()">修改样式</button>
+                    <script>
+                        function changeCss() {
+                            document.getElementById("p_doc_html_css").style.color = "red";
+                        }
+                    </script>
+                </li>
+                <li>
+                    <h4>创建 HTML 元素-appendChild</h4>
+                    <p id="p_doc_html_new">
+                        //新建子节点<br/>
+                        var para=document.createElement("p");<br/>
+                        var node=document.createTextNode("This is new.");<br/>
+                        para.appendChild(node);<br/>
+                        //给父节点添加新建的子节点<br/>
+                        var parent = document.getElementById("parent_id");<br/>
+                        parent.appendChild(para);
+                    </p>
+                    示例：
+                    <button onclick="createNew()">创建元素</button>
+                    <script>
+                        function createNew() {
+                            var para = document.createElement("p");
+                            var node = document.createTextNode("新创建的节点");
+                            para.appendChild(node)
+
+                            var parent = document.getElementById("p_doc_html_new");
+                            parent.appendChild(para);
+                        }
+                    </script>
+                </li>
+                <li>
+                    <h4>创建 HTML 元素-insertBefore</h4>
+                    <p id="p_doc_html_new_before">
+                        <span id="span_doc_insert">//新建子节点</span><br/>
+                        var para=document.createElement("p");<br/>
+                        var node=document.createTextNode("This is new.");<br/>
+                        para.appendChild(node);<br/>
+                        //新建的子节点插入在父节点指定的子节点的前面<br/>
+                        var parent = document.getElementById("parent_id");<br/>
+                        var child = document.getElementById("child_id");<br/>
+                        parent.insertBefore(para,child);
+                    </p>
+                    示例：
+                    <button onclick="createNewBefore()">创建元素</button>
+                    <script>
+                        function createNewBefore() {
+                            var para = document.createElement("p");
+                            var node = document.createTextNode("新创建的节点");
+                            para.appendChild(node)
+
+                            var parent = document.getElementById("p_doc_html_new_before");
+                            var child = document.getElementById("span_doc_insert");
+                            parent.insertBefore(para, child);
+                        }
+                    </script>
+                </li>
+                <li>
+                    <h4>删除 HTML 元素</h4>
+                    <p id="p_doc_html_delete">
+                        <span id="span_doc_html_delete">//将父节点中指定的子节点去除</span><br/>
+                        var parent=document.getElementById("parent_id");<br/>
+                        var child=document.getElementById("child_id");<br/>
+                        parent.removeChild(child);<br/>
+                        或者<br/>
+                        var child=document.getElementById("child_id");<br/>
+                        child.parentNode.removeChild(child);
+                    </p>
+                    示例：
+                    <button onclick="deleteChild()">删除元素</button>
+                    <script>
+                        function deleteChild() {
+                            var parent = document.getElementById("p_doc_html_delete");
+                            var child = document.getElementById("span_doc_html_delete");
+                            //parent.removeChild(child);
+                            child.parentNode.removeChild(child);
+                        }
+                    </script>
+                </li>
+                <li>
+                    <h4>替换 HTML 元素</h4>
+                    <div id="div_doc_html_replace">
+                        <p id="p_doc_html_replace">
+                            <span id="span_doc_html_replace">//将父节点中指定的子节点替换</span><br/>
+                            var para = document.createElement("span");<br/>
+                            var node = document.createTextNode("新替换的内容")<br/>
+                            para.appendChild(node);<br/>
+
+                            var parent = document.getElementById("parent_id");<br/>
+                            var child = document.getElementById("child_id");<br/>
+                            parent.replaceChild(para,child);
+                        </p>
+                    </div>
+                    示例：
+                    <button onclick="replaceChildF()">替换元素</button>
+                    <script>
+                        function replaceChildF() {
+                            var para = document.createElement("p");
+                            var node = document.createTextNode("新替换的内容")
+                            para.appendChild(node);
+
+                            var parent = document.getElementById("div_doc_html_replace");
+                            var child = document.getElementById("p_doc_html_replace");
+                            parent.replaceChild(para, child);
+                        }
+                    </script>
+                </li>
+            </ul>
+        </div>
+        <h3>6.DOM 事件</h3>
+        <div class="div_content_text">
+            <p style="margin-left: 15px;">HTML DOM 允许JavaScript 对 HTML 事件作出反应</p>
+            <ul>
+                <h4>对事件作出反应</h4>
+                <ul>
+                    <li>
+                        <p onclick="this.style.color='red'">当用户鼠标点击时<br/>
+                            在 onclick="" 中做处理<br/>
+                            例如:<br/>
+                            1.直接处理：<br/>
+                            this.style.color='red'--修改颜色<br/>
+                            this.innerHTML='content'--修改内容<br/>
+                            2.创建方法处理：<br/>
+                            onclick="changeColor(this)"
+                        </p>
+                    </li>
+                    <li>
+                        <p onmouseover="mouseOver(this)" onmouseleave="mouseLeave(this)">当用户鼠标移动到离开时<br/>
+                            onmouseover="" --- 鼠标移动到<br/>
+                            onmouseleave="" ---鼠标离开时
+                        </p>
+                    </li>
+                    <li>
+                        <p>onchange="" 常用于输入字段验证</p>
+                        示例：
+                        <input type="text" onchange="inputChange(this)"/>
+                    </li>
+                </ul>
+
+
+                <h4>使用 HTML DOM 来分配事件</h4>
+                <p>
+                    document.getElementById("myBtn").onclick=function(){displayDate()};
+                </p>
+                示例：
+                <input id="btn_doc_event" type="button" value="点击"/>
+                <script>
+                    document.getElementById("btn_doc_event").onclick = function () {
+                        displayDate()
+                    };
+
+                    function displayDate() {
+                        document.getElementById("btn_doc_event").value = Date();
+                    }
+                </script>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+    <h2>四丶BOM</h2>
+    <div>
+        <h3>1.BOM 相关知识</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>BOM</h4>
+                    <p>浏览器对象模型 Browser Object Model</p>
+                </li>
+                <li>
+                    <h4>window 对象</h4>
+                    <p>浏览器窗口</p>
+                </li>
+                <li>
+                    <h4>window 尺寸</h4>
+                    <p>
+                        window.innerHeight -- 浏览器窗口内部高度<br/>
+                        window.innerWidth -- 浏览器窗口内部宽度
+                    </p>
+                    <p>
+                        高度:
+                        <script>
+                            var height = window.innerHeight
+                                || document.documentElement.clientWidth
+                                || document.body.clientWidth;
+                            document.write(height);
+                        </script>
+                        宽度:
+                        <script>
+                            var width = window.innerWidth
+                                || document.documentElement.clientHeight
+                                || document.body.clientHeight;
+                            document.write(width);
+                        </script>
+                    </p>
+
+                </li>
+                <li>
+                    <h4>其他window 方法</h4>
+                    <p>
+                        window.open() - 打开新窗口<br/>
+                        window.close() - 关闭当前窗口<br/>
+                        window.moveTo() - 移动当前窗口<br/>
+                        window.resizeTo() - 调整当前窗口的尺寸
+                    </p>
+                    <input type="button" onclick="openNew()" value="打开新窗体-百度"/>
+                    <input type="button" onclick="myWindow.close()" value="关闭当前窗口"/>
+                    <input type="button" onclick="moveMyWindowTo()" value="移动当前窗口-To"/>
+                    <input type="button" onclick="moveMyWindowBy()" value="移动当前窗口-By"/>
+                    <input type="button" onclick="resizeMyWindowTo()" value="调整当前窗口尺寸-to"/>
+                    <input type="button" onclick="resizeMyWindowBy()" value="调整当前窗口尺寸-by"/>
+                    <script type="text/javascript">
+                        function openNew() {
+                            myWindow = window.open('', 'true', 'width=200,height=100');
+                        }
+
+                        function moveMyWindowTo() {
+                            width = myWindow.innerWidth;
+                            height = myWindow.innerHeight;
+                            myWindow.moveTo(300, 400);
+                            myWindow.focus();
+                        }
+
+                        function moveMyWindowBy() {
+                            myWindow.moveBy(100, 200);
+                            myWindow.focus();
+                        }
+
+                        function resizeMyWindowTo() {
+                            myWindow.resizeTo(500, 600);
+                            myWindow.focus();
+                        }
+
+                        function resizeMyWindowBy() {
+                            myWindow.resizeBy(500, 600);
+                            myWindow.focus();
+                        }
+                    </script>
+                </li>
+            </ul>
+        </div>
+        <h3>2.window location</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>window location</h4>
+                    <p>用于获取当前页面的地址（url），并把浏览器重定向到新的页面</p>
+                </li>
+                <li>
+                    <h4>相关属性</h4>
+                    <ul>
+                        <li>
+                            <p>
+                                location.hostname : web 主机的域名<br/>
+                                <script type="text/javascript">
+                                    document.write("当前域名：" + location.hostname);
+                                </script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                location.pathname : 当前页面的路径和文件名<br/>
+                                <script type="text/javascript">
+                                    document.write("当前页面：" + location.pathname);
+                                </script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                location.port : web 主机端口<br/>
+                                <script type="text/javascript">
+                                    document.write("主机端口：" + location.port);
+                                </script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                location.protocol : 当前页面使用的 web 协议<br/>
+                                <script type="text/javascript">
+                                    document.write("web 协议：" + location.protocol);
+                                </script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                location.href : 当前页面 URL<br/>
+                                <script type="text/javascript">
+                                    document.write("页面URL：" + location.href);
+                                </script>
+                            </p>
+                        </li>
+                        <li>
+                            <p>
+                                location.assign() : 加载新的文档<br/>
+                                <input type="button" onclick="assignNew()" value="加载新文档"/>
+                                <script type="text/javascript">
+                                    function assignNew() {
+                                        //其他页面
+                                        //location.assign("../html/css_data.html");
+                                        //具体链接
+                                        location.assign("http://www.baidu.com");
+                                    }
+                                </script>
+                            </p>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+        </div>
+        <h3>3.window history</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>window history</h4>
+                    <p>浏览器历史</p>
+                </li>
+                <li>
+                    <h4>相关方法</h4>
+                    <ul>
+                        <li>
+                            <h4>history.back() - 与在浏览器点击后退按钮相同</h4>
+                            <input type="button" value="back" onclick="backHistory()"/>
+                        </li>
+                        <li>
+                            <h4>history.forward() - 与在浏览器中点击按钮向前相同</h4>
+                            <input type="button" value="forward" onclick="backForward()"/>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        function backHistory() {
+                            history.back();
+                        }
+
+                        function backForward() {
+                            history.forward();
+                        }
+                    </script>
+                </li>
+            </ul>
+        </div>
+        <h3>4.window navigator</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>window navigator</h4>
+                    <p>访问者浏览器信息</p>
+                </li>
+                <li>
+                    <h4>属性</h4>
+                    <ul>
+                        <li>
+                            <h4>appCodeName -- 浏览器的代码名。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器代码名：" + navigator.appCodeName);
+                            </script>
+                        </li>
+                        <li>
+                            <h4>appName -- 浏览器的名称。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器名称：" + navigator.appName);
+                            </script>
+                        </li>
+                        <li>
+                            <h4>appVersion -- 浏览器的平台和版本信息。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器平台和版本信息：" + navigator.appVersion);
+                            </script>
+                        </li>
+                        <li>
+                            <h4>cookieEnabled -- 浏览器中是否启用 cookie 的布尔值。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器是否启用 cookie：" + navigator.cookieEnabled);
+                            </script>
+                        </li>
+                        <li>
+                            <h4>platform -- 浏览器的操作系统平台。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器的操作系统平台：" + navigator.platform);
+                            </script>
+                        </li>
+                        <li>
+                            <h4>userAgent -- 由客户机发送服务器的 user-agent 头部的值。</h4>
+                            <script type="text/javascript">
+                                document.write("当前浏览器的user-agent 头部的值：" + navigator.userAgent);
+                            </script>
+                        </li>
+                    </ul>
+                </li>
+            </ul>
+
+        </div>
+        <h3>5.消息框</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>警告框</h4>
+                    <p>alert("文本")</p>
+                    <input type="button" value="警告框" onclick="alert('这是一个警告框！')"/>
+                </li>
+                <li>
+                    <h4>确认框</h4>
+                    <p>confirm("文本")</p>
+                    <input id="input_confirm_box" type="button" value="确认框" onclick="confirmBox()"/>
+
+                </li>
+                <li>
+                    <h4>提示框</h4>
+                    <p>prompt("文本","默认值")</p>
+                    <input id="input_prompt_box" type="button" value="提示框" onclick="promptBox()"/>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                function confirmBox() {
+                    var c = confirm('这是一个确认框！');
+                    if (c == true) {
+                        document.getElementById("input_confirm_box").value = "点击了确认按钮";
+                    } else {
+                        document.getElementById("input_confirm_box").value = "点击了取消按钮";
+                    }
+                }
+
+                function promptBox() {
+                    var s = prompt('这是一个提示框！', '默认内容');
+                    if (s == null || s == '') {
+                        document.getElementById("input_prompt_box").value = "没有输入内容或者点击了取消按钮";
+                    } else {
+                        document.getElementById("input_prompt_box").value = "输入的内容为：" + s;
+                    }
+                }
+            </script>
+        </div>
+        <h3>6.计时器</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>setTimeout()</h4>
+                    <p>未来某时执行代码</p>
+                </li>
+                <li>
+                    <h4>clearTimeout()</h4>
+                    <p>取消setTimeout()</p>
+                </li>
+                <li>
+                    <h4>示例</h4>
+                    <ul>
+                        <li>
+                            <h4>倒计时:</h4>
+                            <input id="input_time_back" type="number" placeholder="请输入数字"/>
+                            <input id="btn_time_back" type="button" value="倒计时" onclick="timeBack()"/>
+                        </li>
+                        <li>
+                            <h4>时钟:</h4>
+                            <input type="button" value="当前时间" onclick="nowTime()">
+                            <p id="p_time_now"></p>
+                            <script type="text/javascript">
+                                function nowTime() {
+                                    var today = new Date();
+                                    var hour = today.getHours();
+                                    var minute = today.getMinutes();
+                                    var second = today.getSeconds();
+                                    document.getElementById("p_time_now").innerHTML = hour + ":" + minute + ":" + second;
+                                    ;
+                                    t = setTimeout("nowTime()", 500);
+                                }
+                            </script>
+                        </li>
+                    </ul>
+                    <script type="text/javascript">
+                        function timeBack() {
+                            var number = document.getElementById("input_time_back").value;
+                            timeCountDown(number);
+                        }
+
+                        function timeCountDown(number) {
+                            document.getElementById("btn_time_back").value = number;
+                            newTime = number - 1;
+                            if (newTime >= 0) {
+                                t = setTimeout("timeCountDown(newTime)", 1000);
+                            } else {
+                                document.getElementById("btn_time_back").value = "结束";
+                                clearTimeout(t);
+                            }
+                        }
+                    </script>
+                </li>
+            </ul>
+        </div>
+        <h3>7.Cookies</h3>
+        <div class="div_content_text">
+            <ul>
+                <li>
+                    <h4>cookie</h4>
+                    <p>存储于防卫者的计算机中的变量。</p>
+                </li>
+                <li>
+                    <h4>创建 cookie</h4>
+                    <p>document.cookie = key = value ; 过期日期</p>
+                    <p>
+                        实例:<br/>
+                        <input type="text" placeholder="key" id="input_cookie_key"/>
+                        =
+                        <input type="text" placeholder="value" id="input_cookie_value"/>
+                        <input type="text" placeholder="保存天数" id="input_cookie_save_days"/>
+                        <input type="button" value="保存" onclick="setMyCookie()"/>
+                    </p>
+                </li>
+                <li>
+                    <h4>获取 cookie</h4>
+                    <p>document.</p>
+                    <p>
+                        示例:<br/>
+                        <input type="text" placeholder="key" id="input_cookie_get_key"/>
+                        <input type="button" value="获取" onclick="getMyCookid()"/>
+                    <div id="p_cookie_get_show"></div>
+                    </p>
+                </li>
+            </ul>
+            <script type="text/javascript">
+                function setMyCookie() {
+                    var key = document.getElementById("input_cookie_key").value;
+                    var value = document.getElementById("input_cookie_value").value;
+                    var days = document.getElementById("input_cookie_save_days").value;
+                    setCookie(key, value, days);
+                }
+
+                function setCookie(key, value, expiredays) {
+                    var expireDate = new Date();
+                    expireDate.setTime(expireDate.getTime() + expiredays * 60 * 1000);
+                    document.cookie = key + "=" + escape(value) + ((expiredays == null||expiredays=="") ? "" : ";expires=" + expireDate.toGMTString());
+                }
+
+                function getMyCookid() {
+                    var key = document.getElementById("input_cookie_get_key").value;
+                    var value = getCookie(key);
+                    document.getElementById("p_cookie_get_show").innerHTML = value;
+                }
+
+                function getCookie(key) {
+                    if (document.cookie.length > 0) {
+                        //查找key所在的位置的下标
+                        var startIndex = document.cookie.indexOf(key + "=");
+                        if (startIndex != -1) {
+                            //如果 等于 -1 ，说明没找到。
+                            //值的起始下标
+                            startIndex = startIndex + key.length + 1;
+                            //查找值的结束下标
+                            var endIndex = document.cookie.indexOf(";", startIndex);
+                            if (endIndex == -1)
+                                //等于 -1 ，说明是最后一个值
+              z                  endIndex = document.cookie.length;
+                            return unescape(document.cookie.substring(startIndex, endIndex));
+                        }
+                    }
+                    return "";
+                }
+            </script>
+        </div>
     </div>
 
 </div>
